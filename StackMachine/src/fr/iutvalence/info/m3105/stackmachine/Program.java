@@ -1,19 +1,19 @@
 package fr.iutvalence.info.m3105.stackmachine;
 
-public class Memory {
+public class Program {
 
-	public Memory(int i, int j) {
+	public Program(Instruction[] instructions) {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getStartAddress() {
+	public int getInstructionCount() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public void write(int currentAddress, Object opCode) {
+	public Instruction getInstructionAt(int instructionNumber) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 }
