@@ -29,23 +29,23 @@ public class MachineLauncher
 		Instruction[] instructions = 
 				new Instruction[] 
 				{
-						new Instruction(CPU.IN, null),
-						new Instruction(CPU.CALL, new int[] {0x5}),
-						new Instruction(CPU.OUT, null),
-						new Instruction(CPU.HALT, null),
-						new Instruction(CPU.DUP, null),
-						new Instruction(CPU.JZ, new int[] {0xb}),
-						new Instruction(CPU.CALL, new int[] {0xf}),
-						new Instruction(CPU.RET, null),
-						new Instruction(CPU.POP, null),
-						new Instruction(CPU.PUSH, new int[] {0x1}),
-						new Instruction(CPU.RET, null),
-						new Instruction(CPU.DUP, null),
-						new Instruction(CPU.PUSH, new int[] {0x1}),
-						new Instruction(CPU.SUB, null),
-						new Instruction(CPU.CALL, new int[] {0x5}),
-						new Instruction(CPU.MUL, null),
-						new Instruction(CPU.RET, null)
+						new Instruction(InterfaceCPU.IN, null),
+						new Instruction(InterfaceCPU.CALL, new int[] {0x5}),
+						new Instruction(InterfaceCPU.OUT, null),
+						new Instruction(InterfaceCPU.HALT, null),
+						new Instruction(InterfaceCPU.DUP, null),
+						new Instruction(InterfaceCPU.JZ, new int[] {0xb}),
+						new Instruction(InterfaceCPU.CALL, new int[] {0xf}),
+						new Instruction(InterfaceCPU.RET, null),
+						new Instruction(InterfaceCPU.POP, null),
+						new Instruction(InterfaceCPU.PUSH, new int[] {0x1}),
+						new Instruction(InterfaceCPU.RET, null),
+						new Instruction(InterfaceCPU.DUP, null),
+						new Instruction(InterfaceCPU.PUSH, new int[] {0x1}),
+						new Instruction(InterfaceCPU.SUB, null),
+						new Instruction(InterfaceCPU.CALL, new int[] {0x5}),
+						new Instruction(InterfaceCPU.MUL, null),
+						new Instruction(InterfaceCPU.RET, null)
 				};
 		Program program = new Program(instructions);
 		
@@ -57,9 +57,9 @@ public class MachineLauncher
 		expStack = new Stack(16);
 		callStack = new Stack(16);
 		
-		IO ioSystem = new IO(System.in, System.out, System.err);
-		CPU cpu = new CPU();		
-		Machine machine = new Machine(cpu, programMemory, expStack, callStack, ioSystem );
+		IO ioSystem = new IOConsole(System.in, System.out, System.err);
+		InterfaceCPU cpu = new CPU();		
+		Machine machine = new Machine(cpu, programMemory, expStack, callStack, callStack, callStack, ioSystem );
 		try
 		{
 			machine.loadProgram(program);

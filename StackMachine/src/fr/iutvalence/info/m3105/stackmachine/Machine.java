@@ -2,14 +2,18 @@ package fr.iutvalence.info.m3105.stackmachine;
 
 public class Machine
 {
-	private CPU cpu;
+	private InterfaceCPU cpu;
 	private Memory programMemory;
+	private Stack stack1;
+	private Stack stack2;
 
-	public Machine(CPU cpu, Memory programMemory, Stack expStack, Stack callStack, IO ioSystem)
+	public Machine(InterfaceCPU cpu, Memory programMemory,Stack stack1,Stack stack2, Stack expStack, Stack callStack, IO ioSystem)
 	{
 		super();
 		this.cpu = cpu;
 		this.programMemory = programMemory;
+		this.stack1 = stack1;
+		this.stack2 = stack2;
 		this.cpu.wireToProgramMemory(programMemory);
 		this.cpu.wireToExpStack(expStack);
 		this.cpu.wireToCallStack(callStack);
